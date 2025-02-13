@@ -31,7 +31,7 @@ new Vue({
       },
       async heroPage(id) {
           
-          // <!-- add navagation to hero page -->
+        window.open(`CharactersPage.html?heroId=${id}`, '_blank');   
 
       }
   }
