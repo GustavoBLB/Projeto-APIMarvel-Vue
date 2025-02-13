@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  background-image: radial-gradient(circle, #ce0000 0%, #a70000 100%);
+  -webkit-clip-path: polygon(0% 10%, 100% 0, 100% 100%, 0 80%);
+          clip-path: polygon(0% 10%, 100% 0, 100% 100%, 0 80%);
+}
+header h1 {
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 600;
+  font-size: 5rem;
+  color: white;
+  letter-spacing: -3px;
+}
+
+#app {
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  background-image: radial-gradient(circle, #800000 0%, #c70000 100%);
+}
+#app .characters_title {
+  align-self: center;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 3rem;
+  margin-bottom: -0.5rem;
+  color: #fff8f8;
+}
+#app .characters_cards {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+#app .characters_cards .characters_cards_group {
+  max-width: 70%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4rem;
+}
+#app .characters_cards .characters_cards_group .character_card {
+  cursor: pointer;
+  background-color: rgb(19, 19, 19);
+  display: flex;
+  flex-direction: column;
+  width: 16rem;
+  height: 26rem;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 1px 1px 10px black;
+}
+#app .characters_cards .characters_cards_group .character_card img {
+  width: 100%;
+  height: 60%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+#app .characters_cards .characters_cards_group .character_card:hover img {
+  transform: scale(1.05);
+}
+#app .characters_cards .characters_cards_group .character_card .character_card_content {
+  height: 40%;
+  padding: 0rem 1rem;
+}
+#app .characters_cards .characters_cards_group .character_card .character_card_content .character_card_content_title {
+  text-transform: uppercase;
+  color: #fff8f8;
+  font-family: "Roboto Condensed", sans-serif;
+}/*# sourceMappingURL=StyleHomePage.css.map */
