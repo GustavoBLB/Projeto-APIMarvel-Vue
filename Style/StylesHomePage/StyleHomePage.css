@@ -77,4 +77,22 @@ header h1 {
   text-transform: uppercase;
   color: #fff8f8;
   font-family: "Roboto Condensed", sans-serif;
+}
+
+.change_page {
+  display: flex;
+  justify-content: space-around;
+}
+.change_page .change_page_button {
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+}
+
+.up {
+  margin-top: 2rem;
+}
+
+.down {
+  margin-bottom: 2rem;
 }/*# sourceMappingURL=StyleHomePage.css.map */

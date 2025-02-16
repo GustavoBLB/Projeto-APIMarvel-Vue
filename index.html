@@ -18,10 +18,10 @@
 
         <h2 class="characters_title">know about our heroes</h2>
 
-        <div class="change_page">
+        <div class="change_page up">
 
-            <img v-show="currentPage != 1" src="images/seta-esquerda.png" alt="right_arrow" class="change_page_before" @click="changePage()">
-            <img v-show="currentPage != maxPage"src="images/seta-direita.png" alt="right_arrow" class="change_page_after" @click="changePage()">
+            <img v-show="currentPage != 1" src="images/seta-esquerda.png" alt="left_arrow" class="change_page_button" @click="changePage('previous')">
+            <img v-show="currentPage != maxPage"src="images/seta-direita.png" alt="right_arrow" class="change_page_button" @click="changePage('next')">
             
         </div>
 
@@ -36,7 +36,12 @@
             </div>
         </div>
 
-        
+        <div class="change_page down">
+
+            <img v-show="currentPage != 1" src="images/seta-esquerda.png" alt="left_arrow" class="change_page_button" @click="changePage('previous')">
+            <img v-show="currentPage != maxPage"src="images/seta-direita.png" alt="right_arrow" class="change_page_button" @click="changePage('next')">
+            
+        </div>
 
     </div>
 

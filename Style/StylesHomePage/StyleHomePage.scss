@@ -82,3 +82,20 @@ header{
         }
     }
 }
+
+.change_page{
+    display: flex;
+    justify-content: space-around;
+    .change_page_button{
+        width: 2rem;
+        height: 2rem;
+        cursor: pointer;
+    }
+}
+
+.up{
+    margin-top: 2rem;
+}
+.down{
+    margin-bottom: 2rem;
+}
