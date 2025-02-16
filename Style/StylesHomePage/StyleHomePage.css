@@ -33,6 +33,7 @@ header h1 {
   font-size: 3rem;
   margin-bottom: -0.5rem;
   color: #fff8f8;
+  text-transform: uppercase;
 }
 #app .characters_cards {
   margin-top: 3rem;
