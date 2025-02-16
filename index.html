@@ -18,6 +18,13 @@
 
         <h2 class="characters_title">know about our heroes</h2>
 
+        <div class="change_page">
+
+            <img v-show="currentPage != 1" src="images/seta-esquerda.png" alt="right_arrow" class="change_page_before" @click="changePage()">
+            <img v-show="currentPage != maxPage"src="images/seta-direita.png" alt="right_arrow" class="change_page_after" @click="changePage()">
+            
+        </div>
+
         <div class="characters_cards">
             <div class="characters_cards_group">
                 <div v-for="hero in heroes" :key="hero.id" class="character_card" @click="heroPage(hero.id)">
@@ -28,6 +35,8 @@
                 </div>
             </div>
         </div>
+
+        
 
     </div>
 
