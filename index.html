@@ -15,13 +15,15 @@
 
     <div id="app">
 
-
+        
         <h2 class="characters_title">know about our heroes</h2>
-
+        
+        <input type="text" class="searchHero" v-model="searchHero" placeholder="Search by the name of your hero...">
+        
         <div class="change_page up">
 
-            <img v-show="currentPage != 1" src="images/seta-esquerda.png" alt="left_arrow" class="change_page_button" @click="changePage('previous')">
-            <img v-show="currentPage != maxPage"src="images/seta-direita.png" alt="right_arrow" class="change_page_button" @click="changePage('next')">
+            <img :style="{ opacity: currentPage == 1 ? 0 : 1, pointerEvents: currentPage == 1 ? 'none' : 'auto' }" src="images/seta-esquerda.png" alt="left_arrow" class="change_page_button" @click="changePage('previous')">
+            <img :style="{ opacity: currentPage == maxPage ? 0 : 1, pointerEvents: currentPage == maxPage ? 'none' : 'auto' }"src="images/seta-direita.png" alt="right_arrow" class="change_page_button" @click="changePage('next')">
             
         </div>
 
@@ -38,8 +40,8 @@
 
         <div class="change_page down">
 
-            <img v-show="currentPage != 1" src="images/seta-esquerda.png" alt="left_arrow" class="change_page_button" @click="changePage('previous')">
-            <img v-show="currentPage != maxPage"src="images/seta-direita.png" alt="right_arrow" class="change_page_button" @click="changePage('next')">
+            <img :style="{ opacity: currentPage == 1 ? 0 : 1, pointerEvents: currentPage == 1 ? 'none' : 'auto' }" src="images/seta-esquerda.png" alt="left_arrow" class="change_page_button" @click="changePage('previous')">
+            <img :style="{ opacity: currentPage == maxPage ? 0 : 1, pointerEvents: currentPage == maxPage ? 'none' : 'auto' }"src="images/seta-direita.png" alt="right_arrow" class="change_page_button" @click="changePage('next')">
             
         </div>
 

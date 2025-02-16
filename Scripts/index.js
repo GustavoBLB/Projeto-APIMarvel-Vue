@@ -3,15 +3,34 @@ new Vue({
     data: {
         heroes: [] ,
         currentPage: 1,
-        maxPage: 0,
+        maxPage: 1,
+        searchHero: "",
     },
     async mounted() {
-        let currentPage = await this.getParameter('page') || 1;
-        this.currentPage = currentPage;
-        await this.fetchHeroes(currentPage);
+        await this.fetchHeroes(this.currentPage , this.searchHero);
     },
+
+    watch: {
+        searchHero(newValue) {
+            console.log(this.currentPage , this.searchHero)
+            clearTimeout(this.timeout)
+            this.timeout = setTimeout(async () => {
+                if(newValue){
+                    this.currentPage = 1
+                    this.searchHero = newValue;
+                    this.searchHero != "" ? await this.fetchHeroes(this.currentPage , this.searchHero) : null;
+                    console.log(this.currentPage , this.searchHero)
+                }else {
+                    this.currentPage = 1
+                    await this.fetchHeroes(this.currentPage , this.searchHero);
+                }
+            }, 1500); 
+            console.log(this.currentPage , this.searchHero)
+        }
+    },
+
     methods: {
-        async fetchHeroes(currentPage) {
+        async fetchHeroes(currentPage , searchHero) {
             
             const limit = 20;
             const offset = (currentPage - 1) * limit;
@@ -21,26 +40,29 @@ new Vue({
             const hash = "62eb37bec60ace73acd483210bc3fc51"; 
 
             const url = `http://gateway.marvel.com/v1/public/characters?&offset=${offset}&ts=${ts}&apikey=${publicKey}&hash=${hash}`;
+            const urlWithHero = `http://gateway.marvel.com/v1/public/characters?nameStartsWith=${searchHero}&offset=${offset}&ts=${ts}&apikey=${publicKey}&hash=${hash}`;
 
             try {
-                    const response = await fetch(url);
-                    const data = await response.json();
 
-                    if(data.code === 200) {
-                        this.heroes = data.data.results
+                const response = this.searchHero === "" ? await fetch(url) : await fetch(urlWithHero)
+                const data = await response.json();
 
-                        const totalHeroes = data.data.total;
-                        this.maxPage = Math.ceil(totalHeroes/limit);
+                if(data.code === 200) {
+                    this.heroes = data.data.results
+                    const totalHeroes = data.data.total;
+                    const totalPages = Math.ceil(totalHeroes/limit) 
+                    this.maxPage = totalPages > 0 ? totalPages : 1
                         
-                    } else{
+                } else{
                         console.error("API ERROR:", data.status);
-                    }
+                }
+
+            console.log(this.maxPage)
 
             } catch (error) {
                 console.error("REQUEST ERROR:", error);
             }
 
-            console.log(this.maxPage)
         },
 
         async getParameter(param){
@@ -61,7 +83,8 @@ new Vue({
                 this.currentPage = newPage
             }
 
-            window.location.href = `index.html?page=${newPage}`;
+            await this.fetchHeroes(this.currentPage , this.searchHero);
+            
         },
 
         async heroPage(id) {

@@ -22,7 +22,6 @@ header{
         font-size: 5rem;
         color: white;
         letter-spacing: -3px;
-        
     }
 }
 
@@ -31,14 +30,41 @@ header{
     display: flex;
     flex-direction: column;
     background-image: radial-gradient(circle, #800000 0%, $cor-vermelha 100%);
-        .characters_title {
-            align-self: center;
-            font-family: "Roboto Condensed", sans-serif;
-            font-size: 3rem;
-            margin-bottom: -0.5rem;
-            color: $cor-branca;
-            text-transform: uppercase;
+    .characters_title {
+        align-self: center;
+        font-family: "Roboto Condensed", sans-serif;
+        font-size: 3rem;
+        margin-bottom: -0.5rem;
+        color: $cor-branca;
+        text-transform: uppercase;
+    }
+    .searchHero{
+        width: 25rem;
+        font-family: "Roboto Condensed", sans-serif;
+        // height: 2rem;
+        align-self: center;
+        margin-top: 2rem;
+        padding: 0.4vw;
+        border: none;
+        outline: none;
+        border-radius: 5rem;
+        transition: .4s;
+    }
+    .searchHero:hover {
+        box-shadow: 1px 1px 10px rgb(121, 121, 121);
+      }
+    .searchHero:focus {
+        box-shadow: 1px 1px 10px $cor-preta;
+    }
+    .change_page{
+        display: flex;
+        justify-content: space-around;
+        .change_page_button{
+            width: 2rem;
+            height: 2rem;
+            cursor: pointer;
         }
+    }
     .characters_cards{
         margin-top: 3rem;
         display: flex;
@@ -83,15 +109,6 @@ header{
     }
 }
 
-.change_page{
-    display: flex;
-    justify-content: space-around;
-    .change_page_button{
-        width: 2rem;
-        height: 2rem;
-        cursor: pointer;
-    }
-}
 
 .up{
     margin-top: 2rem;
