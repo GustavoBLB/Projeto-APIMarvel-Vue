@@ -27,7 +27,10 @@
             
         </div>
 
-        <div class="characters_cards">
+        <div v-if="loading" class="characters_cards_loading">
+        </div>
+
+        <div v-else class="characters_cards">
             <div class="characters_cards_group">
                 <div v-for="hero in heroes" :key="hero.id" class="character_card" @click="heroPage(hero.id)">
                     <img :src="`${hero.thumbnail.path}.${hero.thumbnail.extension}`" :alt="hero.name">

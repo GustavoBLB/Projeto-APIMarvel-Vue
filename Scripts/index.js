@@ -5,6 +5,7 @@ new Vue({
         currentPage: 1,
         maxPage: 1,
         searchHero: "",
+        loading: false,
     },
     async mounted() {
         await this.fetchHeroes(this.currentPage , this.searchHero);
@@ -32,6 +33,8 @@ new Vue({
     methods: {
         async fetchHeroes(currentPage , searchHero) {
             
+            this.loading = true;
+
             const limit = 20;
             const offset = (currentPage - 1) * limit;
             
@@ -51,17 +54,15 @@ new Vue({
                     this.heroes = data.data.results
                     const totalHeroes = data.data.total;
                     const totalPages = Math.ceil(totalHeroes/limit) 
-                    this.maxPage = totalPages > 0 ? totalPages : 1
-                        
+                    this.maxPage = totalPages > 0 ? totalPages : 1       
                 } else{
                         console.error("API ERROR:", data.status);
                 }
-
-            console.log(this.maxPage)
-
             } catch (error) {
                 console.error("REQUEST ERROR:", error);
             }
+
+            this.loading = false;
 
         },
 
