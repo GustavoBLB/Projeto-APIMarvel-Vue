@@ -1,3 +1,5 @@
+import { hash, publicKey } from './config.js';
+
 new Vue({
     el: "#app",
     data: {
@@ -32,18 +34,18 @@ new Vue({
 
     methods: {
         async fetchHeroes(currentPage , searchHero) {
-            
+
             this.loading = true;
 
             const limit = 20;
             const offset = (currentPage - 1) * limit;
             
             const ts = "1"; 
-            const publicKey = "15cea5f8a59b71e7d636187219977051";
-            const hash = "62eb37bec60ace73acd483210bc3fc51"; 
+            const localPublicKey = publicKey;
+            const localHash = hash; 
 
-            const url = `http://gateway.marvel.com/v1/public/characters?&offset=${offset}&ts=${ts}&apikey=${publicKey}&hash=${hash}`;
-            const urlWithHero = `http://gateway.marvel.com/v1/public/characters?nameStartsWith=${searchHero}&offset=${offset}&ts=${ts}&apikey=${publicKey}&hash=${hash}`;
+            const url = `http://gateway.marvel.com/v1/public/characters?&offset=${offset}&ts=${ts}&apikey=${localPublicKey}&hash=${localHash}`;
+            const urlWithHero = `http://gateway.marvel.com/v1/public/characters?nameStartsWith=${searchHero}&offset=${offset}&ts=${ts}&apikey=${localPublicKey}&hash=${localHash}`;
 
             try {
 
