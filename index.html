@@ -22,8 +22,13 @@
         
         <div class="change_page up">
 
-            <img :style="{ opacity: currentPage == 1 ? 0 : 1, pointerEvents: currentPage == 1 ? 'none' : 'auto' }" src="images/seta-esquerda.png" alt="left_arrow" class="change_page_button" @click="changePage('previous')">
-            <img :style="{ opacity: currentPage == maxPage ? 0 : 1, pointerEvents: currentPage == maxPage ? 'none' : 'auto' }"src="images/seta-direita.png" alt="right_arrow" class="change_page_button" @click="changePage('next')">
+        <div class="pagination">
+            <button v-if="currentPage != 1" @click="changePage(1)" >PRIMEIRA</button>  
+            <button v-if="currentPage > 2" @click="changePage(currentPage - 1)">{{ currentPage - 1 }} PAGINA ANTERIOR</button>
+            <button @click="changePage(currentPage)">{{ currentPage }}PAGINA ATUAL </button>
+            <button v-if="currentPage <= maxPage" @click="changePage(currentPage + 1)">{{ currentPage + 1 }}PAGINA PROXIMA</button>
+            <button v-if="currentPage != maxPage" @click="changePage(maxPage)" >{{ maxPage }}ULTIMA</button>
+        </div>
             
         </div>
 
