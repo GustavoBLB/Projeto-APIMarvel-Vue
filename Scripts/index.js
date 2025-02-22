@@ -73,18 +73,9 @@ new Vue({
             return urlParams.get(param);
         },
 
-        async changePage(param){
+        async changePage(page){
 
-            let newPage;
-            let currentPageNumber = Number(this.currentPage)
-
-            if(param == 'next'){
-                newPage = currentPageNumber + 1 
-                this.currentPage = newPage
-            }else{
-                newPage = currentPageNumber - 1
-                this.currentPage = newPage
-            }
+            this.currentPage = page
 
             await this.fetchHeroes(this.currentPage , this.searchHero);
             
