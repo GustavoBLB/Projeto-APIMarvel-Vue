@@ -22,9 +22,9 @@
 
         <div class="pagination up">
             <button v-if="currentPage != 1" @click="changePage(1)" >1</button>  
-            <button v-if="currentPage > 1 && currentPage != 1" @click="changePage(currentPage - 1)">{{ currentPage - 1 }}bbbbbbbb</button>
+            <button v-if="currentPage > 1 && currentPage != 1" @click="changePage(currentPage - 1)">{{ currentPage - 1 }}</button>
             <button class="selected">{{ currentPage }}</button>
-            <button v-if="currentPage < maxPage && currentPage != maxPage " @click="changePage(currentPage + 1)">{{ currentPage + 1 }}aaaaa</button>
+            <button v-if="currentPage < maxPage && currentPage != maxPage " @click="changePage(currentPage + 1)">{{ currentPage + 1 }}</button>
             <button v-if="currentPage != maxPage" @click="changePage(maxPage)" >{{ maxPage }}</button>
         </div>
             
