@@ -24,7 +24,7 @@
             <button v-if="currentPage != 1" @click="changePage(1)" >1</button>  
             <button v-if="currentPage > 2" @click="changePage(currentPage - 1)">{{ currentPage - 1 }}</button>
             <button class="selected">{{ currentPage }}</button>
-            <button v-if="currentPage < maxPage" @click="changePage(currentPage + 1)">{{ currentPage + 1 }}</button>
+            <button v-if="currentPage < maxPage - 1 " @click="changePage(currentPage + 1)">{{ currentPage + 1 }}</button>
             <button v-if="currentPage != maxPage" @click="changePage(maxPage)" >{{ maxPage }}</button>
         </div>
             
